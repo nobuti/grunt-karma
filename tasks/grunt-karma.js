@@ -113,7 +113,8 @@ module.exports = function (grunt) {
     // allow karma to be run in the background so it doesn't block grunt
     if (data.background) {
       var backgroundProcess = require('child_process').fork(
-          path.join(__dirname, '..', 'lib', 'background.js')
+          path.join(__dirname, '..', 'lib', 'background.js'),
+          { silent: true }
       )
 
       backgroundProcess.on('close', function (code) {
